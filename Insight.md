@@ -8,7 +8,7 @@ A VPS with 8GB of RAM, anything from 60GB SSD storage and 2 CPU cores is the abs
 
 ## Operating System
 
-This guide tailored to and tested on `Debian 10 "Buster"` but should probably also work on Debian-ish derivatives like `Devuan` or `Ubuntu` and others. Before starting, please install the latest updates and prerequisites.
+This guide tailored to and tested on `Debian 12 "bookworm"` but should probably also work on Debian-ish derivatives like `Devuan` or `Ubuntu` and others. Before starting, please install the latest updates and prerequisites.
 
 ```bash
 apt update
