@@ -269,6 +269,18 @@ cd api
 npm install --production
 ```
 
+Create a `blocked.json` file in the root of the `vrsc.insight` folder
+
+```bash
+cat << EOF > ~/insight.VRSC/blocked.json
+{
+  "addresses": [
+    "RTqQe58LSj2yr5CrwYFwcsAQ1edQwmrkUU"
+  ],
+  "reason": "These addresses cause daemon performance issues and are blocked from queries"
+}
+```
+
 Now launch Insight using `pm2` and follow the log output to make sure Insight launches allright.
 
 ```bash
