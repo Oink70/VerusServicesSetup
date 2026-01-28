@@ -84,9 +84,6 @@ rpcallowip=127.0.0.1
 rpcthreads=256
 rpcworkqueue=1024
 
-# Verusd-RPC doesn't need a wallet
-disablewallet=1
-
 # indexing options:
 insightexplorer=1
 idindex=1
@@ -101,8 +98,6 @@ logips=1
 
 # miscellaneous options
 banscore=64
-checkblocks=64
-checklevel=4
 
 # addnodes
 addnode=167.235.72.129:27485
