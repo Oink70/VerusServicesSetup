@@ -5,7 +5,7 @@ This alternate setup deviates from the standard setup on the following subjects:
 
 Operating a mining pool requires you to know about systems administration, IT security, databases, software development, coin daemons and other more or less related stuff. Running a production pool can literally be more work than a full-time job.
 
-A VPS with 8GB of RAM, anything above 30GB **SSD** storage and 1 CPU core which knows about AES-NI is the absolute minimum requirement. Generally, having more RAM is more important than having more CPU power here. Additionally, the hypervisor of your VPS _must_ pass through the original CPU designation from its host. See below for an example that will likely lead to trouble.
+A VPS with 12GB of RAM, anything above 60GB **SSD** storage and 1 CPU core which knows about AES-NI is the absolute minimum requirement. Generally, having more RAM is more important than having more CPU power here. Additionally, the hypervisor of your VPS _must_ pass through the original CPU designation from its host. See below for an example that will likely lead to trouble.
 
 ```bash
 lscpu|grep -i "model name"
@@ -36,7 +36,7 @@ useradd -m -d /home/verus -s /bin/bash verus
 su - verus
 ```
 
-Download the **latest** (`v0.9.3` used in this example) Verus binaries from the [GitHub Releases Page](https://github.com/VerusCoin/VerusCoin/releases), unpack, move them into place and clean up like so:
+Download the **latest** (`v1.2.16-1` used in this example) Verus binaries from the [GitHub Releases Page](https://github.com/VerusCoin/VerusCoin/releases), unpack, move them into place and clean up like so:
 
 ```bash
 mkdir ~/bin
@@ -276,7 +276,7 @@ useradd -m -d /home/pool -s /bin/bash pool
 usermod -g pool redis
 chown -R redis:pool /var/run/redis
 su - pool
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.5/install.sh | bash
 ```
 
 Log out and back in to activate `nvm.sh`
