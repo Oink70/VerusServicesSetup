@@ -44,13 +44,13 @@ exit
 su - verus
 ```
 
-Download the **latest** (`v1.2.12-1` used in this example) Verus binaries from the [GitHub Releases Page](https://github.com/VerusCoin/VerusCoin/releases). Unpack, move them into place and clean up like so:
+Download the **latest** (`v1.2.16-1` used in this example) Verus binaries from the [GitHub Releases Page](https://github.com/VerusCoin/VerusCoin/releases). Unpack, move them into place and clean up like so:
 
 ```bash
-wget https://github.com/VerusCoin/VerusCoin/releases/download/v1.2.12-1/Verus-CLI-Linux-v1.2.12-1-amd64.tgz
-tar xf Verus-CLI-Linux-v1.2.12-1-amd64.tgz; tar xf Verus-CLI-Linux-v1.2.12-1-amd64.tar.gz
+wget https://github.com/VerusCoin/VerusCoin/releases/download/v1.2.16-1/Verus-CLI-Linux-v1.2.16-1-amd64.tgz
+tar xf Verus-CLI-Linux-v1.2.16-1-amd64.tgz; tar xf Verus-CLI-Linux-v1.2.16-1-amd64.tar.gz
 mv verus-cli/{fetch-params,fetch-bootstrap,verusd,verus} ~/bin
-rm -rf verus-cli Verus-CLI-Linux-v1.2.12-1-amd64.t*
+rm -rf verus-cli Verus-CLI-Linux-v1.2.16-1-amd64.t*
 ```
 
 Use the supplied script to download a copy of the `zcparams` data. Watch for and fix any occuring errors until you can be sure you successfully have gotten a complete `zcparams` copy.
@@ -176,7 +176,7 @@ echo export PATH=\"${PATH}:/home/insight/bin\" >> ~/.bashrc
 Install NodeJS v20 using `nvm.sh` like this:
 
 ```bash
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.5/install.sh | bash
 ```
 
 To activate the changes, log out of and back into the `insight` account.
