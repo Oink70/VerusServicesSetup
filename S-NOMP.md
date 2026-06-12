@@ -4,7 +4,8 @@ Operating a mining pool requires you to know about systems administration, IT se
 
 **NOTE:** When you are done please message `englal#8861` on the [Verus discord](https://discord.gg/VRKMP2S)) with your poolwallet IP so he can `addnode` it around his platform, which contributes to network stability. `Done` in this case means at least full setup procedure completed, pool running, a block was found and paid out. Thank you.
 
-A VPS with 4GB of RAM, anything above 20GB **SSD** storage and 1 CPU core which knows about AES-NI is the absolute minimum requirement. Generally, having more RAM is more important than having more CPU power here. Additionally, the hypervisor of your VPS _must_ pass through the original CPU designation from its host. See below for an example that will likely lead to trouble.
+A VPS with 8GB of RAM, anything above 60GB **SSD** storage and 2 CPU cores which knows about AES-NI is the absolute minimum requirement. Generally, having more RAM is more important than having 
+more CPU power here. Additionally, the hypervisor of your VPS _must_ pass through the original CPU designation from its host. See below for an example that will likely lead to trouble.
 
 ```bash
 lscpu|grep -i "model name"
@@ -33,13 +34,13 @@ useradd -m -d /home/verus -s /bin/bash verus
 su - verus
 ```
 
-DDownload the **latest** (`v0.7.2-6` used in this example) Verus binaries from the [GitHub Releases Page](https://github.com/VerusCoin/VerusCoin/releases). Unpack, move them into place and clean up like so:
+DDownload the **latest** (`v1.2.16-1` used in this example) Verus binaries from the [GitHub Releases Page](https://github.com/VerusCoin/VerusCoin/releases). Unpack, move them into place and clean up like so:
 
 ```bash
-wget https://github.com/VerusCoin/VerusCoin/releases/download/v0.7.2-8/Verus-CLI-Linux-v0.7.2-8-amd64.tgz
-tar xf Verus-CLI-Linux-v0.7.2-8-amd64.tgz; tar xf Verus-CLI-Linux-v0.7.2-8-amd64.tar.gz
+wget https://github.com/VerusCoin/VerusCoin/releases/download/v1.2.16-1/Verus-CLI-Linux-v1.2.16-1-amd64.tgz
+tar xf Verus-CLI-Linux-v1.2.16-1-amd64.tgz; tar xf Verus-CLI-Linux-v1.2.16-1-amd64.tar.gz
 mv verus-cli/{fetch-params,fetch-bootstrap,verusd,verus} ~/bin
-rm -rf verus-cli Verus-CLI-Linux-v0.7.2-8-amd64.t*
+rm -rf verus-cli Verus-CLI-Linux-v1.2.16-1-amd64.t*
 ```
 
 Use the supplied script to download a copy of the `zcparams` data. Watch for and fix any occuring errors until you can be sure you successfully have gotten a complete `zcparams` copy.
@@ -188,7 +189,7 @@ Press `ctrl-c` to exit `tail` if it looks alright. To check the status and know 
 verus getinfo
 ```
 
-When it has synced up to height, the `blocks` and `longestchain` values will be at par. Additionally, you should verify against [the explorer](https://explorer.veruscoin.io) that you are not on a fork. Edit the `crontab` using `crontab -e` and include the line below to autostart the poolwallet:
+When it has synced up to height, the `blocks` and `longestchain` values will be at par. Additionally, you should verify against [the explorer](https://explorer.verus.io) that you are not on a fork. Edit the `crontab` using `crontab -e` and include the line below to autostart the poolwallet:
 
 ```crontab
 @reboot cd /home/verus/.komodo/VRSC; /home/verus/bin/verusd -daemon 1>/dev/null 2>&1
@@ -259,7 +260,7 @@ useradd -m -d /home/pool -s /bin/bash pool
 usermod -g pool redis
 chown -R redis:pool /var/run/redis
 su - pool
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.5/install.sh | bash
 ```
 
 Log out and back in to activate `nvm.sh`
